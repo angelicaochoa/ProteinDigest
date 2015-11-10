@@ -1,0 +1,6 @@
+include start-proteindigest.py
+include *.cfg
+include proteindigest/config/*.cfg
+recursive-include proteindigest/templates *.html
+recursive-include proteindigest/templates *.kid
+recursive-include proteindigest/static *

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+    <title>Protein Digest</title>
+</head>
+
+
+<body>
+<tr><th><b>Protein Name: </b></th><td>${name}</td></tr>
+<P><b>The entered sequence is: </b>
+<br><textarea cols="60" rows="5">${sequence}</textarea></br>
+</P>
+
+
+<P>The selected enzyme is: <b>${enzyme}</b></P>
+
+<P>The max # of missed cleavages (MC) is: <b>${mc}</b></P>
+
+<P py:if="maxmass == 'unlimited'">Displaying peptides greater than <b>${minmass}</b> g/mol.</P>
+
+<P py:if="maxmass != 'unlimited'">Displaying peptides greater than <b>${minmass}</b> and less than <b>${maxmass}</b> g/mol.</P>
+
+<P>Displaying peptides greater than <b>${minlength}</b> and less than <b>${maxlength}</b> residues.</P>
+
+<P>Displaying ${percent_covered[0]} peptides out of ${percent_covered[1]} (${percent_covered[2]}%).</P>
+
+<br><A href="${tg.url('/')}">Digest New Protein</A></br>
+<br><A href="${tg.url(urlstring)}">View as XML</A></br>
+
+
+
+
+
+<hr>
+</hr>
+<P>The peptide masses from your sequence are:</P>
+
+<P/>
+<table align="center" bgcolor="#9F81F7" cellpadding="10">
+<th align="center">Mass</th>
+<th align="center">Position</th>
+<th align="center">Length</th>
+<th align="center">#MC</th>
+<th align="center">AA's (L|R)</th>
+<th align="center">Peptide</th>
+
+
+<tr py:for="peptide_vals in pep_fragments">
+  <td align="center" bgcolor="white">${peptide_vals[0]}</td>
+  <td align="center" bgcolor="white">${peptide_vals[1]}</td>
+  <td align="center" bgcolor="white">${peptide_vals[2]}</td>
+  <td align="center" bgcolor="white">${peptide_vals[3]}</td>
+  <td align="center" bgcolor="white">${peptide_vals[4]}</td>
+  <td bgcolor="white">${peptide_vals[5]}</td>
+
+  
+
+  
+</tr>
+
+</table>
+
+</body>
+</html>

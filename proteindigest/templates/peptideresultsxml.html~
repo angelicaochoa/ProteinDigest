@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<result xmlns:py="http://genshi.edgewall.org/">
+  <item py:for="pep in pep_fragments">
+    <peptide>${pep[4]}</peptide>
+    <mass>${pep[0]}</mass>
+    <position>${pep[1]}</position>
+    <mc>${pep[2]}</mc>
+    <LR_aas>${pep[3]}</LR_aas>
+  </item>
+  <protein_name>${name}</protein_name>
+  <protein_sequence>${sequence}</protein_sequence>
+</result>
+

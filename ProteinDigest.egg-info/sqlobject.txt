@@ -1,0 +1,2 @@
+db_module=proteindigest.model
+history_dir=$base/proteindigest/sqlobject-history

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+    <title>Protein Digest</title>
+</head>
+
+
+<body>
+<P/>
+<table>
+<tr><th>Protein Name:</th><td>${name}</td></tr>
+<tr><th>Protein Sequence:</th>
+  <textarea rows="12" cols="50">${peptide_seq}</textarea></tr>
+
+
+<th>MCs</th>
+<th>Peptide</th>
+<tr py:for="fragList in pep_fragments">
+  <td py:for="val in fragList">${val}</td>
+
+  
+
+  
+</tr>
+</table>
+<A href="${tg.url('/pepdigest',peptide_seq=peptide_seq)}">${name}</A>
+</body>
+</html>

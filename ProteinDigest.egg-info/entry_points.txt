@@ -1,0 +1,4 @@
+[console_scripts]
+start-proteindigest = proteindigest.command:start
+bootstrap-proteindigest = proteindigest.command:bootstrap
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      py:strip="">
+
+<head py:match="head" py:attrs="select('@*')">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+    <title py:replace="''">Your title goes here</title>
+    <link py:for="css in tg_css" py:replace="css.display()" />
+    <link py:for="js in tg_js_head" py:replace="js.display()" />
+    <meta py:replace="select('*')" />
+    <link rel="stylesheet" type="text/css" media="screen" href="${tg.url('/static/css/style.css')}" />
+</head>
+
+
+<body py:match="body" py:attrs="select('@*')">
+
+  
+  <div id="content">
+    <div align="center"> 
+	<font size="6" color="#642EFE"><b>Protein Digest</b></font>
+        <P></P>
+    </div>
+
+    <div py:replace="select('*|text()')"/>
+
+    <div id="footer">
+      <div class="flogo">
+        <a href="http://www.turbogears.org/" title="Powered by TurboGears"
+          ></a>
+      </div>
+      <div class="foottext" align="right">
+        <p>Angelica Ochoa<br>Georgetown University</br><br>Protein Digest App.</br></p>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
